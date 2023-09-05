@@ -9,8 +9,8 @@ import time
 import jwt
 import requests
 
-from alp_api.cache import TokenCache
-from alp_api.errors import ApiFormError, ApiError, AuthError
+from alpcom_api.cache import TokenCache
+from alpcom_api.errors import ApiFormError, ApiError, AuthError
 
 
 class ALPClient:

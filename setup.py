@@ -6,8 +6,9 @@ setup(
     install_requires=[
         'requests==2.31.0',
         'pydantic==2.1.1',
+        'pyjwt==2.8.0'
     ],
-    version='1.0.0',
+    version='1.0.1',
     description='ALP.com API Python',
     author='ALP.com',
     license='MIT'

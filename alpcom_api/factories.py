@@ -1,4 +1,4 @@
-from alp_api import apis, clients, cache
+from alpcom_api import apis, clients, cache
 
 
 def get_public_api(url: str = None) -> apis.ALPPublicApi:

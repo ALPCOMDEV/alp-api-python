@@ -2,8 +2,8 @@ from datetime import datetime, timezone, timedelta
 from decimal import Decimal
 from typing import List, Union, Dict, Optional
 
-from alp_api import clients, dto
-from alp_api.errors import ApiError
+from alpcom_api import clients, dto
+from alpcom_api.errors import ApiError
 
 
 class APIMixin:

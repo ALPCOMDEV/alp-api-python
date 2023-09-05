@@ -4,7 +4,7 @@
 ### Initialization
 
 ```python
-from alp_api import factories, cache
+from alpcom_api import factories, cache
 
 public_api = factories.get_public_api()
 private_api = factories.get_private_api(
@@ -20,7 +20,7 @@ private_api = factories.get_private_api(
 
 ```python
 import time
-from alp_api import factories, dto
+from alpcom_api import factories, dto
 
 public_api = factories.get_public_api()
 
@@ -40,7 +40,7 @@ candle_list = public_api.charts(
 ### Accounts API
 
 ```python
-from alp_api import factories, dto
+from alpcom_api import factories, dto
 
 private_api = factories.get_private_api(
     key='** Your private_api Key **',
@@ -71,7 +71,7 @@ private_api.accounts().history('USDT')
 
 
 ```python
-from alp_api import factories, dto
+from alpcom_api import factories, dto
 
 private_api = factories.get_private_api(
     key='** Your private_api Key **',
@@ -119,7 +119,7 @@ status_dict = private_api.trading().cancel_all_orders()
 ### Deposit API
 
 ```python
-from alp_api import factories
+from alpcom_api import factories
 
 private_api = factories.get_private_api(
     key='** Your private_api Key **',
@@ -136,7 +136,7 @@ deposits = private_api.deposits().history(currency='USDT')
 ### Withdraw API
 
 ```python
-from alp_api import factories, dto
+from alpcom_api import factories, dto
 
 private_api = factories.get_private_api(
     key='** Your private_api Key **',
@@ -167,7 +167,7 @@ withdraws = private_api.withdraws().history(currency='USDT')
 
 
 ```python
-from alp_api import factories, dto
+from alpcom_api import factories, dto
 
 private_api = factories.get_private_api(
     key='** Your private_api Key **',
