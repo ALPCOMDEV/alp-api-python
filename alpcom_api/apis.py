@@ -2,7 +2,10 @@ from datetime import datetime, timezone, timedelta
 from decimal import Decimal
 from typing import List, Union, Dict, Optional
 
-from alpcom_api import clients, dto
+from alpcom_api import clients
+from alpcom_api.dto import api as dto
+from alpcom_api.dto import constants as dto_const
+from alpcom_api.dto import constants
 from alpcom_api.errors import ApiError
 
 
@@ -62,7 +65,7 @@ class ALPPublicApi(APIMixin):
         return [dto.Ticker(**item) for item in (raw_result or [])]
 
     def charts(self, pair: str,
-               interval: dto.ChartInterval,
+               interval: constants.ChartInterval,
                since: int,
                until: int = None,
                limit: int = None) -> List[dto.Candle]:
@@ -238,7 +241,7 @@ class MarginApi(BasePrivateApi):
         return int(result[0])
 
     def close_position(self, account_id: int,
-                       wallet_type: dto.WalletType,
+                       wallet_type: constants.WalletType,
                        pair: str = ''):
         result = self._client.json(
             'margin',

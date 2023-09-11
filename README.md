@@ -226,3 +226,52 @@ repays = private_api.margin().interests('ETH', start_time=None, end_time=None)
 # Get liquidation history
 repays = private_api.margin().liquidations('ETH', start_time=None, end_time=None)
 ```
+
+### Web Socket API
+
+```python
+import asyncio
+from pprint import pprint
+
+from alpcom_api import ws, clients, cache
+from alpcom_api.dto import ws as dto
+
+
+class MyHandler(ws.Handler):
+    def on_ticker(self, ticker: dto.Ticker):
+        pprint(ticker)
+
+    def on_trade(self, trade: dto.Trade):
+        pprint(trade)
+
+    def on_rate(self, rate: dto.Rate):
+        pprint(rate)
+
+    def on_diff(self, diff: dto.Diff):
+        pprint(diff)
+
+    def on_depth(self, depth: dto.Depth):
+        pprint(depth)
+
+    def on_wallet(self, wallet: dto.Wallet):
+        pprint(wallet)
+
+    def on_order(self, order: dto.Order):
+        pprint(order)
+
+
+async def main():
+    cli = clients.ALPAuthClient(
+        key='**API_KEY**',
+        secret='**API_KEY**',
+        token_cache=cache.FileCache('dev_token.txt')
+    )
+
+    async with ws.Client(handler=MyHandler()) as client:
+        await client.auth(cli)
+        await client.subscribe(ws.tps.tickers_all, ws.tps.trades_of('ETH_USDT'), ws.tps.diff_of('ETH_USDT'))
+        await client.receive_messages()
+
+
+asyncio.get_event_loop().run_until_complete(main())
+```

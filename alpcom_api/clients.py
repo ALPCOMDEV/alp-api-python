@@ -111,6 +111,9 @@ class ALPAuthClient(ALPClient):
             r, timeout=self.REQUEST_TIMEOUT
         ))
 
+    def get_token(self) -> str:
+        return self._headers['Authorization'].split(' ')[-1]
+
     def _make_sign(self, body: bytes):
         return hmac.new(
             key=self._secret.encode(),
