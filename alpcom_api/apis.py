@@ -51,7 +51,7 @@ class ALPPublicApi(APIMixin):
                   limit_buy: int = None,
                   limit_sell: int = None) -> dto.Orderbook:
         raw_result = self._client.get(
-            'order_book',
+            'orderbook',
             self.clean(pair=pair, group=group, limit_buy=limit_buy, limit_sell=limit_sell)
         )
         return dto.Orderbook(**raw_result)

@@ -9,7 +9,7 @@ setup(
         'pyjwt==2.8.0',
         'websockets==11.0.3'
     ],
-    version='1.0.2',
+    version='1.0.3',
     description='ALP.com API Python',
     author='ALP.com',
     license='MIT',
